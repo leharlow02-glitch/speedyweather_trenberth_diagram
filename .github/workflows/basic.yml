@@ -2,7 +2,7 @@ name: Continuous integration setup
 
 on:
   push:
-    branches: ["main", "dev", "Lucy"]
+    branches: ["main", "dev", "Lucy", "hannah"]
   pull_request:
     branches: ["main", "dev", "Lucy"]
   workflow_dispatch:
