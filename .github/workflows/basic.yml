@@ -2,29 +2,85 @@ name: Continuous integration setup
 
 on:
   push:
-    branches: ["main", "dev", "Lucy", "hannah"]
+    branches: ["main", "dev", "Lucy", "hannah", "ofer"]
   pull_request:
-    branches: ["main", "dev", "Lucy"]
+    branches: ["main", "dev", "Lucy", "hannah", "ofer"]
   workflow_dispatch:
 
 jobs:
   build:
-    name: Operating system
+    name: Julia CI (run files)
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Julia
+        uses: julia-actions/setup-julia@v1
         with:
-          python-version: "3.11"
-      - name: Install dependencies
+          version: "1.12"
+
+      - name: Install system libraries (common for Makie / NetCDF / Cairo)
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          python -m pip install .[dev]
-      - name: Lint with flake8
-        run: flake8
-      - name: Test with pytest
-        run: pytest
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential pkg-config \
+            libgl1-mesa-dev libglu1-mesa-dev \
+            libx11-dev libxrandr-dev libxext-dev libxrender-dev libxcb1-dev \
+            libfreetype6-dev libpng-dev libjpeg-dev \
+            libhdf5-dev libnetcdf-dev libproj-dev \
+            xvfb python3 python3-pip \
+            && sudo apt-get clean
+          python3 -m pip install --upgrade pip
+          python3 -m pip install nbconvert
+
+      - name: Optionally cache registries & packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.julia/registries
+            ~/.julia/packages
+            ~/.julia/artifacts
+            ~/.julia/compiled
+          # If you don't keep ci/Manifest.toml in repo, change the key to a static key.
+          key: julia-${{ runner.os }}-ci-${{ hashFiles('ci/Manifest.toml') }}
+          restore-keys: |
+            julia-${{ runner.os }}-ci-
+
+      - name: Instantiate (if you use ci/Project.toml)
+        if: ${{ always() }}
+        run: |
+          # If you don't have ci/Project.toml, this will fail — change --project=ci to --project=. or skip this step.
+          if [ -f ci/Project.toml ]; then
+            julia --project=ci -e 'using Pkg; Pkg.instantiate(); Pkg.precompile()'
+          else
+            echo "No ci/Project.toml found — skipping instantiate."
+          fi
+
+      - name: Run Julia file(s) and fail on error
+        run: |
+          # --- OPTIONS (pick one) ---
+          # 1) Run a single script (replace path/to/script.jl)
+          # xvfb-run -s "-screen 0 1280x1024x24" julia --project=ci -e 'try include("path/to/script.jl"); catch e; println(e); exit(1); end'
+
+          # 2) Run all .jl files in a directory (e.g. scripts/). This will fail if any file throws an error.
+          # Uses xvfb-run to support GL backends; remove xvfb-run if not needed.
+          set -euo pipefail
+          DIR="scripts"   # change to folder with your scripts, or "." to run all .jl in repo root
+          if [ -d "$DIR" ]; then
+            for f in "$DIR"/*.jl; do
+              [ -e "$f" ] || continue
+              echo "---- Running $f ----"
+              xvfb-run -s "-screen 0 1280x1024x24" julia --project=ci -e "try include(\"$f\"); println(\"OK: $f\"); catch e; println(stderr, \"ERROR in $f: \", e); Base.show_backtrace(stderr, catch_backtrace()); exit(1); end"
+            done
+          else
+            echo "No scripts directory found at $DIR; exiting with status 0"
+          fi
+
+      - name: (Optional) Run Jupyter notebooks
+        if: false  # flip to true if you want to enable notebook execution
+        run: |
+          for nb in $(ls notebooks/*.ipynb 2>/dev/null || true); do
+            echo "Running $nb"
+            jupyter nbconvert --to notebook --execute "$nb" --ExecutePreprocessor.timeout=600 --output "$nb"
+          done
