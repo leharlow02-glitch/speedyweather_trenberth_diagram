@@ -6,7 +6,6 @@ using SpeedyWeather
 using Dates
 using Statistics
 
-# put your existing definitions here:
 # - calc_trenberth_from_diagn
 function calc_trenberth_from_diagn(diagn, model; SumFlag::Bool=false)
     fields = Dict(
@@ -181,6 +180,8 @@ function SpeedyWeather.finalize!(cb::TrenberthCallback,
     end
     return nothing
 end
+
+# Make trenberth callback
 
 function make_trenberth_callback(; vars = [:LHF,:SHF,:SSRU,:SLRU,:SSRD,:SLRD,:OSR,:OLR,:albedo,:SW_net_sfc,:LW_net_sfc,:surface_net],
                                   SumFlag::Bool=false,
