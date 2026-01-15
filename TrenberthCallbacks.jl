@@ -45,7 +45,8 @@ function calc_trenberth_from_diagn(diagn, model; SumFlag::Bool=false)
     end
 
     results[:SW_net_sfc]  = results[:SSRD] - results[:SSRU]
-    results[:LW_net_sfc]  = results[:SLRD] - results[:SLRU]
+    results[:LW_net_sfc]  = 
+    results[:SLRU] - results[:SLRD]
     results[:surface_net] = results[:SW_net_sfc] + results[:LW_net_sfc] - results[:LHF] - results[:SHF]
 
     return results
