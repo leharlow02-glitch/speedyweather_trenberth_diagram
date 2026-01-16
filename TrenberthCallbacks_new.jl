@@ -1,24 +1,43 @@
 module TrenberthCallbacks
 
-export TrenberthCallback, calc_trenberth_from_diagn
+export TrenberthCallback, calc_trenberth_from_diagn , make_trenberth_callback
 
 using SpeedyWeather
 using Dates
 using Statistics
 
+# --------------------------
+# helper: compute Trenberth diagnostics from diagn + model
+# --------------------------
 # - calc_trenberth_from_diagn
 function calc_trenberth_from_diagn(diagn, model; SumFlag::Bool=false)
     fields = Dict(
         # :LHF   => diagn.physics.surface_latent_heat_flux,
-        :LHF   => diagn.physics.surface_moisture_flux,
+        :LHF   => diagn.physics.surface_humidity_flux,
         :SHF   => diagn.physics.sensible_heat_flux,
         :SSRU  => diagn.physics.surface_shortwave_up,
         :SLRU  => diagn.physics.surface_longwave_up,
         :SSRD  => diagn.physics.surface_shortwave_down,
         :SLRD  => diagn.physics.surface_longwave_down,
-        :OSR   => diagn.physics.outgoing_shortwave_radiation,
-        :OLR   => diagn.physics.outgoing_longwave_radiation,
+        :OSR   => diagn.physics.outgoing_shortwave,
+        :OLR   => diagn.physics.outgoing_longwave,
         :albedo=> diagn.physics.albedo
+    )
+
+    # - TRENBERTH_LONGNAMES
+    const TRENBERTH_LONGNAMES = Dict(
+        :LHF => "Surface latent heat flux (W/m²)",
+        # :SHF => "Surface sensible heat flux (W/m²)",
+        :SSRU => "Surface shortwave up (W/m²)",
+        :SLRU => "Surface longwave up (W/m²)",
+        :SSRD => "Surface shortwave down (W/m²)",
+        :SLRD => "Surface longwave down (W/m²)",
+        :OSR => "Outgoing shortwave radiation (TOA) (W/m²)",
+        :OLR => "Outgoing longwave radiation (TOA) (W/m²)",
+        :albedo => "Surface albedo",
+        :SW_net_sfc => "Surface net shortwave (W/m²)",
+        :LW_net_sfc => "Surface net longwave (W/m²)",
+        :surface_net => "Surface net energy (W/m²)"
     )
 
     function calc_global_mean(field)
@@ -56,21 +75,6 @@ function calc_trenberth_from_diagn(diagn, model; SumFlag::Bool=false)
     return results
 end
 
-# - TRENBERTH_LONGNAMES
-const TRENBERTH_LONGNAMES = Dict(
-    # :LHF => "Surface latent heat flux (W/m²)",
-    :SHF => "Surface sensible heat flux (W/m²)",
-    :SSRU => "Surface shortwave up (W/m²)",
-    :SLRU => "Surface longwave up (W/m²)",
-    :SSRD => "Surface shortwave down (W/m²)",
-    :SLRD => "Surface longwave down (W/m²)",
-    :OSR => "Outgoing shortwave radiation (TOA) (W/m²)",
-    :OLR => "Outgoing longwave radiation (TOA) (W/m²)",
-    :albedo => "Surface albedo",
-    :SW_net_sfc => "Surface net shortwave (W/m²)",
-    :LW_net_sfc => "Surface net longwave (W/m²)",
-    :surface_net => "Surface net energy (W/m²)"
-)
 
 # - TrenberthCallback struct
 Base.@kwdef mutable struct TrenberthCallback <: SpeedyWeather.AbstractCallback
