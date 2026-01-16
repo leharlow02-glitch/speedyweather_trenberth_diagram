@@ -9,7 +9,8 @@ using Statistics
 # - calc_trenberth_from_diagn
 function calc_trenberth_from_diagn(diagn, model; SumFlag::Bool=false)
     fields = Dict(
-        :LHF   => diagn.physics.surface_latent_heat_flux,
+        # :LHF   => diagn.physics.surface_latent_heat_flux,
+        :LHF   => diagn.physics.surface_moisture_flux,
         :SHF   => diagn.physics.sensible_heat_flux,
         :SSRU  => diagn.physics.surface_shortwave_up,
         :SLRU  => diagn.physics.surface_longwave_up,
@@ -37,7 +38,11 @@ function calc_trenberth_from_diagn(diagn, model; SumFlag::Bool=false)
     results = Dict{Symbol, Float64}()
     for (k, f) in fields
         try
-            results[k] = Float64(calcfun(f))
+        if k == :LHF
+            results[k] = calcfun(f .* 2.5e6)  # convert moisture flux to latent heat flux (W/m² or W)
+        else
+            results[k] = calcfun(f)
+        end
         catch err
             @warn "calc_trenberth_from_diagn: could not compute $k: $err"
             results[k] = NaN
@@ -53,7 +58,7 @@ end
 
 # - TRENBERTH_LONGNAMES
 const TRENBERTH_LONGNAMES = Dict(
-    :LHF => "Surface latent heat flux (W/m²)",
+    # :LHF => "Surface latent heat flux (W/m²)",
     :SHF => "Surface sensible heat flux (W/m²)",
     :SSRU => "Surface shortwave up (W/m²)",
     :SLRU => "Surface longwave up (W/m²)",
@@ -86,6 +91,11 @@ function TrenberthCallback(; vars = [:LHF,:SHF,:SSRU,:SLRU,:SSRD,:SLRD,:OSR,:OLR
                              schedule::Schedule=Schedule())
     d = Dict{Symbol, Vector{Float64}}()
     for v in vars
+        # find the surface humidity variable and change to atent heat flux if needed:
+        if v == :LHF
+            @warn "LHF (latent heat flux) is not computed in calc_trenberth_from_diagn, skipping."
+            continue
+        end
         d[v] = nsteps > 0 ? Vector{Float64}(undef, nsteps + 1) : Float64[]
     end
     times = nsteps > 0 ? Vector{Float64}(undef, nsteps + 1) : Float64[]
