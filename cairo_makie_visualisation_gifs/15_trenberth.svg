@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns='http://www.w3.org/2000/svg' width='1400' height='980' viewBox='0 0 1400 980'>
+<defs>
+  <linearGradient id="atmGrad" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0%" stop-color="#EAF6FF"/>
+    <stop offset="100%" stop-color="#DDEFF7"/>
+  </linearGradient>
+  <linearGradient id="surfGrad" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0%" stop-color="#FFFFFF"/>
+    <stop offset="100%" stop-color="#F3FBF3"/>
+  </linearGradient>
+
+  <!-- smaller arrowheads (thin shafts) -->
+  <marker id='m_sw' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='5' markerHeight='5' orient='auto'>
+    <path d='M 0 0 L 10 5 L 0 10 z' fill='#D6A91E' />
+  </marker>
+
+  <marker id='m_lw' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='5' markerHeight='5' orient='auto'>
+    <path d='M 0 0 L 10 5 L 0 10 z' fill='#D94536' />
+  </marker>
+
+  <marker id='m_sens' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='5' markerHeight='5' orient='auto'>
+    <path d='M 0 0 L 10 5 L 0 10 z' fill='#0F6B6B' />
+  </marker>
+
+  <marker id='m_lat' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='5' markerHeight='5' orient='auto'>
+    <path d='M 0 0 L 10 5 L 0 10 z' fill='#1F4FA3' />
+  </marker>
+</defs>
+
+<rect width='100%' height='100%' fill='white'/>
+<g>
+  <rect x='92' y='60' rx='12' ry='12' width='1216' height='560' fill='url(#atmGrad)' stroke='#9fb7cf' stroke-width='1.8'/>
+</g>
+<line x1='116' y1='84.0' x2='128' y2='84.0' stroke='#6b7f88' stroke-width='1' stroke-dasharray='2,3'/>
+<line x1='116' y1='169.33333333333331' x2='128' y2='169.33333333333331' stroke='#6b7f88' stroke-width='1' stroke-dasharray='2,3'/>
+<line x1='116' y1='254.66666666666666' x2='128' y2='254.66666666666666' stroke='#6b7f88' stroke-width='1' stroke-dasharray='2,3'/>
+<line x1='116' y1='340.0' x2='128' y2='340.0' stroke='#6b7f88' stroke-width='1' stroke-dasharray='2,3'/>
+<line x1='116' y1='425.3333333333333' x2='128' y2='425.3333333333333' stroke='#6b7f88' stroke-width='1' stroke-dasharray='2,3'/>
+<line x1='116' y1='510.6666666666667' x2='128' y2='510.6666666666667' stroke='#6b7f88' stroke-width='1' stroke-dasharray='2,3'/>
+<line x1='116' y1='596.0' x2='128' y2='596.0' stroke='#6b7f88' stroke-width='1' stroke-dasharray='2,3'/>
+<text x='136' y='80' font-family='Verdana' font-size='12' fill='#6b7f88'>Lapse-rate guide</text>
+<polygon points='192.0 74, 271.04 74, 355.04 606, 276.0 606' fill='#FADBD7' stroke='#d66a60' stroke-width='2.4' fill-opacity='0.9'/>
+<polygon points='437.136 74, 516.176 74, 432.17600000000004 606, 353.136 606' fill='#FADBD7' stroke='#d66a60' stroke-width='2.4' fill-opacity='0.9'/>
+<polygon points='1015.9200000000001 74, 1094.96 74, 1108.96 606, 1029.92 606' fill='#F7E9B7' stroke='#caa33a' stroke-width='2.4' fill-opacity='0.9'/>
+<polygon points='1151.056 74, 1230.096 74, 1216.096 606, 1137.056 606' fill='#F7E9B7' stroke='#caa33a' stroke-width='2.4' fill-opacity='0.9'/>
+<path d="M 92 620 C 396.0 574, 1004.0 574, 1308 620 L 1308 770 L 92 770 Z" fill='#F3FBF3' stroke='#2E8A3B' stroke-width='1.6'/>
+<text x='110' y='100' font-family='Verdana' font-size='24' fill='#08121A'>Atmosphere</text>
+<text x='110' y='664' font-family='Verdana' font-size='24' fill='#08121A'>Surface</text>
+<line x1='315.52' y1='634' x2='247.424' y2='82' stroke='#D94536' stroke-width='10.7' stroke-linecap='round' marker-end='url(#m_lw)'/>
+<text x='201.424' y='76' font-family='Verdana' font-size='14' fill='#08121A' text-anchor='end'>LW Up 391.5 W/m²</text>
+<line x1='468.656' y1='88' x2='388.656' y2='634' stroke='#D94536' stroke-width='9.73' stroke-linecap='round' marker-end='url(#m_lw)'/>
+<text x='342.656' y='612' font-family='Verdana' font-size='14' fill='#08121A' text-anchor='end'>LW Down 348.0 W/m²</text>
+<text x='241.424' y='76' font-family='Verdana' font-size='14' fill='#08121A' text-anchor='end'>OLR 230.3 W/m²</text>
+<line x1='1049.44' y1='84' x2='1065.344' y2='634' stroke='#D6A91E' stroke-width='9.48' stroke-linecap='round' marker-end='url(#m_sw)'/>
+<text x='1075.344' y='612' font-family='Verdana' font-size='14' fill='#08121A' text-anchor='start'>SW Down 336.4 W/m²</text>
+<line x1='1178.576' y1='634' x2='1196.576' y2='82' stroke='#D6A91E' stroke-width='5.61' stroke-linecap='round' marker-end='url(#m_sw)'/>
+<text x='1206.576' y='76' font-family='Verdana' font-size='14' fill='#08121A' text-anchor='start'>Reflected 101.2 W/m²</text>
+<line x1='574.6048000000001' y1='634' x2='572.6048000000001' y2='340.0' stroke='#0F6B6B' stroke-width='8.0' stroke-linecap='round' marker-end='url(#m_sens)'/>
+<text x='580.6048000000001' y='334.0' font-family='Verdana' font-size='14' fill='#08121A' text-anchor='start'>Sensible 15.5 W/m²</text>
+<line x1='861.9072000000001' y1='634' x2='863.9072000000001' y2='340.0' stroke='#1F4FA3' stroke-width='8.0' stroke-linecap='round' marker-end='url(#m_lat)'/>
+<text x='873.9072000000001' y='334.0' font-family='Verdana' font-size='14' fill='#08121A' text-anchor='start'>Latent 76.6 W/m²</text>
+<text x='1059.488' y='656' font-family='Verdana' font-size='14' fill='#08121A' text-anchor='end'>SW Absorbed 235.3 W/m²</text>
+<text x='700.0' y='120' font-family='Verdana' font-size='22' fill='#08121A' text-anchor='middle'>Atmosphere net = 43.5 W/m²</text>
+<text x='700.0' y='936' font-family='Verdana' font-size='22' fill='#08121A' text-anchor='middle'>Surface net = 99.7 W/m²</text>
+<g>
+  <rect x='1040' y='760' rx='8' ry='8' width='300' height='160' fill='#ffffff' stroke='#e6eef5'/>
+  <text x='1058' y='796' font-family='Verdana' font-size='14' fill='#08121A'>Legend</text>
+  <line x1='1058' y1='830' x2='1138' y2='830' stroke='#D6A91E' stroke-width='12' stroke-linecap='round'/>
+  <text x='1158' y='834' font-family='Verdana' font-size='14' fill='#08121A'>Shortwave</text>
+  <line x1='1058' y1='866' x2='1138' y2='866' stroke='#D94536' stroke-width='12' stroke-linecap='round'/>
+  <text x='1158' y='870' font-family='Verdana' font-size='14' fill='#08121A'>Longwave</text>
+  <line x1='1058' y1='902' x2='1138' y2='902' stroke='#0F6B6B' stroke-width='10' stroke-dasharray='8,6' stroke-linecap='round'/>
+  <text x='1158' y='906' font-family='Verdana' font-size='14' fill='#08121A'>Sensible (teal)</text>
+  <line x1='1058' y1='934' x2='1138' y2='934' stroke='#1F4FA3' stroke-width='10' stroke-dasharray='8,6' stroke-linecap='round'/>
+  <text x='1158' y='938' font-family='Verdana' font-size='14' fill='#08121A'>Latent (blue)</text>
+</g>
+<text x='14' y='964' font-family='Verdana' font-size='11' fill='#666666'>Generated: 2025-11-28 11:33 — trenberth_columns_v16 (random example)</text>
+</svg>

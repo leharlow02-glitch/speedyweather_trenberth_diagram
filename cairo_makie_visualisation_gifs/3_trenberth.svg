@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+<defs>
+  <linearGradient id="atmGrad" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0%" stop-color="#EAF6FF" stop-opacity="1"/>
+    <stop offset="100%" stop-color="#DDEFF7" stop-opacity="1"/>
+  </linearGradient>
+  <linearGradient id="surfGrad" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+    <stop offset="100%" stop-color="#E6F7E6" stop-opacity="1"/>
+  </linearGradient>
+
+  <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.10"/>
+  </filter>
+
+  <marker id="arrow_gold" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#F2C94C" />
+  </marker>
+  <marker id="arrow_red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#E94B3C" />
+  </marker>
+  <marker id="arrow_gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#333333" />
+  </marker>
+</defs>
+
+<rect width="100%" height="100%" fill="#ffffff"/>
+<g id="sun">
+  <circle cx="600.0" cy="36" r="18" fill="#FFD54A" stroke="#FFB300" stroke-width="2"/>
+  <line x1="622.0" y1="36.0" x2="636.0" y2="36.0" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+  <line x1="615.5563491861041" y1="51.55634918610404" x2="625.4558441227157" y2="61.45584412271571" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+  <line x1="600.0" y1="58.0" x2="600.0" y2="72.0" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+  <line x1="584.4436508138959" y1="51.55634918610404" x2="574.5441558772843" y2="61.45584412271572" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+  <line x1="578.0" y1="36.0" x2="564.0" y2="36.00000000000001" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+  <line x1="584.4436508138959" y1="20.443650813895957" x2="574.5441558772843" y2="10.54415587728429" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+  <line x1="600.0" y1="14.0" x2="600.0" y2="0.0" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+  <line x1="615.5563491861041" y1="20.44365081389595" x2="625.4558441227157" y2="10.544155877284282" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+</g>
+<g filter="url(#softShadow)">
+  <rect x="120" y="80" rx="12" ry="12" width="960" height="220" fill="url(#atmGrad)" stroke="#9fb7cf" stroke-width="1.4"/>
+</g>
+<line x1="128" y1="146.0" x2="1072" y2="146.0" stroke="#2f556e" stroke-width="1.2" stroke-dasharray="6,6" opacity="0.8"/>
+<text x="138" y="138.0" font-family="Verdana, Arial, sans-serif" font-size="12" fill="#2f556e">Tropopause (guide)</text>
+<g opacity="0.9">
+  <line x1="138" y1="98" x2="168" y2="282" stroke="#2d4758" stroke-width="1.0" stroke-dasharray="4,6" opacity="0.9"/>
+</g>
+<text x="138" y="110" font-family="Verdana, Arial, sans-serif" font-size="18" fill="#08121A">Atmosphere</text>
+<g filter="url(#softShadow)">
+  <rect x="120" y="570" rx="12" ry="12" width="960" height="160" fill="url(#surfGrad)" stroke="#7AB07A" stroke-width="1.5"/>
+</g>
+<text x="138" y="598" font-family="Verdana, Arial, sans-serif" font-size="18" fill="#08121A">Surface</text>
+<path d="M 600.0 70 C 606.0 140, 580.0 494, 600.0 582" fill="none" stroke="#F2C94C" stroke-width="15.46" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow_gold)"/>
+<text x="594.75" y="273.25" font-family="Verdana, Arial, sans-serif" font-size="14" fill="#08121A" text-anchor="middle">SW Down 336.4 W/m²</text>
+<text x="560.0" y="558" font-family="Verdana, Arial, sans-serif" font-size="13" fill="#08121A" text-anchor="end">SW Absorbed 235.3 W/m²</text>
+<path d="M 907.1999999999999 114 C 947.1999999999999 12, 925.1999999999999 6, 917.1999999999999 18" fill="none" stroke="#F2C94C" stroke-width="6.22" stroke-linecap="round" marker-end="url(#arrow_gold)"/>
+<text x="987.1999999999999" y="36" font-family="Verdana, Arial, sans-serif" font-size="13" fill="#08121A">Reflected 101.2 W/m²</text>
+<path d="M 504.0 592 C 444.0 526, 474.0 238.4, 510.0 288" fill="none" stroke="#E94B3C" stroke-width="17.66" stroke-linecap="round" marker-end="url(#arrow_red)"/>
+<text x="443.0" y="390.65" font-family="Verdana, Arial, sans-serif" font-size="13" fill="#08121A" text-anchor="end">LW Up 391.5 W/m²</text>
+<path d="M 446.40000000000003 286 C 464.40000000000003 330, 440.40000000000003 534, 452.40000000000003 578" fill="none" stroke="#E94B3C" stroke-width="15.92" stroke-linecap="round" marker-end="url(#arrow_red)"/>
+<text x="433.65000000000003" y="446.0" font-family="Verdana, Arial, sans-serif" font-size="13" fill="#08121A" text-anchor="end">LW Down 348.0 W/m²</text>
+<path d="M 235.2 100 C 201.2 44, 217.2 12, 229.2 18" fill="none" stroke="#E94B3C" stroke-width="7.19" stroke-linecap="round" marker-end="url(#arrow_red)"/>
+<text x="221.2" y="36" font-family="Verdana, Arial, sans-serif" font-size="13" fill="#08121A" text-anchor="end">OLR 233.4 W/m²</text>
+<path d="M 772.8000000000001 598 C 808.8000000000001 518, 808.8000000000001 368, 778.8000000000001 288" fill="none" stroke="#4a4a4a" stroke-width="6.78" stroke-dasharray="8,6" stroke-linecap="round" marker-end="url(#arrow_gray)"/>
+<text x="828.8000000000001" y="425.0" font-family="Verdana, Arial, sans-serif" font-size="13" fill="#08121A">Sensible 15.9 W/m²</text>
+<path d="M 926.4 598 C 962.4 518, 962.4 368, 932.4 288" fill="none" stroke="#4a4a4a" stroke-width="10.5" stroke-dasharray="8,6" stroke-linecap="round" marker-end="url(#arrow_gray)"/>
+<text x="982.4" y="451.0" font-family="Verdana, Arial, sans-serif" font-size="13" fill="#08121A">Latent 94.5 W/m²</text>
+<text x="600.0" y="66" font-family="Verdana, Arial, sans-serif" font-size="16" fill="#08121A" text-anchor="middle">Atmosphere net = -88.7 W/m²</text>
+<text x="600.0" y="768" font-family="Verdana, Arial, sans-serif" font-size="16" fill="#08121A" text-anchor="middle">Surface net = 81.4 W/m²</text>
+<g>
+  <rect x="920" y="650" rx="8" ry="8" width="240" height="140" fill="#ffffff" stroke="#e6eef5" />
+  <text x="938" y="678" font-family="Verdana, Arial, sans-serif" font-size="13" fill="#08121A">Legend</text>
+  <line x1="938" y1="704" x2="988" y2="704" stroke="#F2C94C" stroke-width="8" stroke-linecap="round"/>
+  <text x="1006" y="708" font-family="Verdana, Arial, sans-serif" font-size="12" fill="#08121A">Shortwave</text>
+  <line x1="938" y1="734" x2="988" y2="734" stroke="#E94B3C" stroke-width="8" stroke-linecap="round"/>
+  <text x="1006" y="738" font-family="Verdana, Arial, sans-serif" font-size="12" fill="#08121A">Longwave</text>
+  <line x1="938" y1="764" x2="988" y2="764" stroke="#4a4a4a" stroke-width="6" stroke-dasharray="8,6" stroke-linecap="round"/>
+  <text x="1006" y="768" font-family="Verdana, Arial, sans-serif" font-size="12" fill="#08121A">Turbulent (Sensible/Latent)</text>
+</g>
+<text x="14" y="802" font-family="Verdana, Arial, sans-serif" font-size="12" fill="#666666">Generated: 2025-11-28 10:06 — pretty_trenberth_tidy (random example)</text>
+</svg>

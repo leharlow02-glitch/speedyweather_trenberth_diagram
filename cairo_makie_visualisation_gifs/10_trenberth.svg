@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns='http://www.w3.org/2000/svg' width='1280' height='880' viewBox='0 0 1280 880'>
+<defs>
+  <linearGradient id="atmGrad" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0%" stop-color="#EAF6FF"/>
+    <stop offset="100%" stop-color="#DDEFF7"/>
+  </linearGradient>
+  <linearGradient id="surfGrad" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0%" stop-color="#FFFFFF"/>
+    <stop offset="100%" stop-color="#F3FBF3"/>
+  </linearGradient>
+  <filter id="softShadow" x='-20%' y='-20%' width='140%' height='140%'><feDropShadow dx='0' dy='8' stdDeviation='10' flood-color='#000' flood-opacity='0.10'/></filter>
+
+  <marker id='m_sw' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto'>
+    <path d='M 0 0 L 10 5 L 0 10 z' fill='#F2C94C' />
+  </marker>
+  <marker id='m_lw' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto'>
+    <path d='M 0 0 L 10 5 L 0 10 z' fill='#E94B3C' />
+  </marker>
+  <marker id='m_sens' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto'>
+    <path d='M 0 0 L 10 5 L 0 10 z' fill='#0F6B6B' />
+  </marker>
+  <marker id='m_lat' viewBox='0 0 10 10' refX='5' refY='5' markerWidth='6' markerHeight='6' orient='auto'>
+    <path d='M 0 0 L 10 5 L 0 10 z' fill='#1F4FA3' />
+  </marker>
+</defs>
+
+<rect width='100%' height='100%' fill='#ffffff'/>
+<g filter='url(#softShadow)'>
+  <rect x='56' y='36' rx='12' ry='12' width='1168' height='520' fill='url(#atmGrad)' stroke='#9fb7cf' stroke-width='1.4'/>
+</g>
+<polygon points='99.46285714285716 48, 192.90285714285716 48, 262.90285714285716 544, 169.46285714285716 544' fill='#2f6c8a' fill-opacity='0.06' stroke='none'/>
+<polygon points='331.03405714285714 48, 424.47405714285713 48, 354.47405714285713 544, 261.03405714285714 544' fill='#2f6c8a' fill-opacity='0.06' stroke='none'/>
+<polygon points='485.1832380952381 48, 578.6232380952381 48, 601.9565714285714 544, 508.5165714285714 544' fill='#2f6c8a' fill-opacity='0.06' stroke='none'/>
+<polygon points='720.0647619047619 48, 813.5047619047618 48, 790.1714285714286 544, 696.7314285714285 544' fill='#2f6c8a' fill-opacity='0.06' stroke='none'/>
+<g filter='url(#softShadow)'>
+  <path d="M 56 556 C 348.0 516, 932.0 516, 1224 556 L 1224 676 L 56 676 Z" fill='url(#surfGrad)' stroke='#55a057' stroke-width='1.4'/>
+</g>
+<text x='72' y='70' font-family='Verdana, Arial, sans-serif' font-size='22' fill='#08121A'>Atmosphere</text>
+<text x='72' y='592' font-family='Verdana, Arial, sans-serif' font-size='22' fill='#08121A'>Surface</text>
+<line x1='181.18285714285716' y1='568' x2='181.18285714285716' y2='358.4' stroke='#E94B3C' stroke-width='26.62' stroke-linecap='round' marker-end='url(#m_lw)'/>
+<text x='167.18285714285716' y='459.2' font-family='Verdana, Arial, sans-serif' font-size='15' fill='#08121A' text-anchor='end'>LW Up 391.5 W/m²</text>
+<line x1='342.75405714285716' y1='535.2' x2='342.75405714285716' y2='568' stroke='#E94B3C' stroke-width='24.11' stroke-linecap='round' marker-end='url(#m_lw)'/>
+<text x='328.75405714285716' y='561.6' font-family='Verdana, Arial, sans-serif' font-size='15' fill='#08121A' text-anchor='end'>LW Down 348.0 W/m²</text>
+<line x1='543.5699047619048' y1='54' x2='543.5699047619048' y2='568' stroke='#F2C94C' stroke-width='23.44' stroke-linecap='round' marker-end='url(#m_sw)'/>
+<text x='555.5699047619048' y='307.0' font-family='Verdana, Arial, sans-serif' font-size='15' fill='#08121A' text-anchor='start'>SW Down 336.4 W/m²</text>
+<line x1='755.1180952380953' y1='568' x2='755.1180952380953' y2='54' stroke='#F2C94C' stroke-width='13.4' stroke-linecap='round' marker-end='url(#m_sw)'/>
+<text x='767.1180952380953' y='307.0' font-family='Verdana, Arial, sans-serif' font-size='15' fill='#08121A' text-anchor='start'>Reflected 101.2 W/m²</text>
+<text x='619.344' y='582' font-family='Verdana, Arial, sans-serif' font-size='15' fill='#08121A' text-anchor='end'>SW Absorbed 235.3 W/m²</text>
+<line x1='362.376380952381' y1='568' x2='362.376380952381' y2='181.60000000000002' stroke='#0F6B6B' stroke-width='10.72' stroke-linecap='round' marker-end='url(#m_sens)'/>
+<text x='374.376380952381' y='370.8' font-family='Verdana, Arial, sans-serif' font-size='15' fill='#08121A' text-anchor='start'>Sensible 15.5 W/m²</text>
+<line x1='376.376380952381' y1='568' x2='376.376380952381' y2='244.0' stroke='#1F4FA3' stroke-width='12.3' stroke-linecap='round' marker-end='url(#m_lat)'/>
+<text x='388.376380952381' y='414.0' font-family='Verdana, Arial, sans-serif' font-size='15' fill='#08121A' text-anchor='start'>Latent 76.6 W/m²</text>
+<text x='640.0' y='88' font-family='Verdana, Arial, sans-serif' font-size='22' fill='#08121A' text-anchor='middle'>Atmosphere net = 43.5 W/m²</text>
+<text x='640.0' y='840' font-family='Verdana, Arial, sans-serif' font-size='22' fill='#08121A' text-anchor='middle'>Surface net = 99.7 W/m²</text>
+<g>
+  <rect x='980' y='680' rx='8' ry='8' width='260' height='160' fill='#ffffff' stroke='#e6eef5'/>
+  <text x='998' y='714' font-family='Verdana, Arial, sans-serif' font-size='13' fill='#08121A'>Legend</text>
+  <line x1='998' y1='746' x2='1068' y2='746' stroke='#F2C94C' stroke-width='10' stroke-linecap='round'/>
+  <text x='1084' y='750' font-family='Verdana, Arial, sans-serif' font-size='13' fill='#08121A'>Shortwave</text>
+  <line x1='998' y1='778' x2='1068' y2='778' stroke='#E94B3C' stroke-width='10' stroke-linecap='round'/>
+  <text x='1084' y='782' font-family='Verdana, Arial, sans-serif' font-size='13' fill='#08121A'>Longwave</text>
+  <line x1='998' y1='810' x2='1068' y2='810' stroke='#0F6B6B' stroke-width='8' stroke-dasharray='8,6' stroke-linecap='round'/>
+  <text x='1084' y='814' font-family='Verdana, Arial, sans-serif' font-size='13' fill='#08121A'>Sensible (teal)</text>
+  <line x1='998' y1='838' x2='1068' y2='838' stroke='#1F4FA3' stroke-width='8' stroke-dasharray='8,6' stroke-linecap='round'/>
+  <text x='1084' y='842' font-family='Verdana, Arial, sans-serif' font-size='13' fill='#08121A'>Latent (blue)</text>
+</g>
+<text x='12' y='868' font-family='Verdana, Arial, sans-serif' font-size='10' fill='#666666'>Generated: 2025-11-28 10:54 — trenberth_columns_v6 (random example)</text>
+</svg>
