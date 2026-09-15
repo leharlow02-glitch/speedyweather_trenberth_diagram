@@ -310,7 +310,7 @@ function plot_trenberth_diagram(obs, arrows, solar_constant)
         """
     end
     Label(info_grid[3, 1], vals_text, fontsize = 20, halign = :center,
-          valign = :top, tellheight = false)
+          valign = :top)#, tellheight = false)
 
     time_text = map(current_point) do p
         "$(Dates.format(p.datetime, "yyyy-mm-dd HH:MM"))\nStep $(time_idx[])/$(nsteps)"

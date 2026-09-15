@@ -28,12 +28,14 @@ model = PrimitiveWetModel(spectral_grid; shortwave_radiation=OneBandShortwave(sp
 # record_maps=false if you only want the time series / arrow diagram and
 # want to skip the map storage and its per-step overhead entirely, e.g.:
 #   cb = TrenberthCallback(schedule=Schedule(every=Day(1)), record_maps=false)
-cb = TrenberthCallback(schedule=Schedule(every=Day(1)))
+cb = TrenberthCallback(
+    schedule=Schedule(every=Day(1)),
+    record_maps=false)
 add!(model.callbacks, :trenberth => cb)
 
 # 3) initialize and run
 sim = initialize!(model)   # this will call SpeedyWeather.initialize! on cb
-run!(sim, period=Day(20))  # or your usual run invocation
+run!(sim, period=Year(50))  # or your usual run invocation
 
 # --- sanity checks -----------------------------------------------------
 # If cb.timestep_counter is only 1 after the run, callback! never fired -
@@ -62,6 +64,7 @@ fig, cleanup = plot_trenberth_diagram(obs, arrows, solar)
 display(fig)
 
 println("\nDiagram is up.")
+wait()
 println("Click 'Show All Flux Time Series' for the full time series (dates now")
 println("label only the bottom row of panels, to cut down on clutter).")
 if !isempty(obs.maps)
