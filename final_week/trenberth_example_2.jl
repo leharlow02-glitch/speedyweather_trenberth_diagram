@@ -72,12 +72,14 @@ println("obs_maps.maps has entries for: $(collect(keys(obs_maps.maps)))")
 
 # 5) Save GIFs. Over a 10-year run this is usually more practical than the
 # interactive window - the arrow-diagram GIF plays through all 3650+ daily
-# steps, and the maps GIF plays through the ~520 weekly steps, without
-# needing anyone to sit and scrub a slider.
+# steps, the time series GIF plays through the same daily steps with a
+# sweeping marker on each panel, and the maps GIF plays through the ~520
+# weekly steps, without needing anyone to sit and scrub a slider.
 println("\nSaving GIFs (this can take a little while for a 10-year run)...")
-save_trenberth_gif(obs, arrows, solar; filename="trenberth.gif", framerate=24)
-save_flux_maps_gif(obs_maps; filename="trenberth_maps.gif", framerate=8)
-println("Saved trenberth.gif and trenberth_maps.gif")
+save_trenberth_gif(obs, arrows, solar; filename="trenberth_3.gif", framerate=24)
+save_flux_timeseries_gif(obs; filename="trenberth_timeseries_3.gif", framerate=24)
+save_flux_maps_gif(obs_maps; filename="trenberth_maps_3.gif", framerate=8)
+println("Saved trenberth_3.gif, trenberth_timeseries_3.gif, and trenberth_maps_3.gif")
 
 # 6) Optional: also open the interactive window. Note this uses obs (daily,
 # no maps attached) for the arrow diagram/time series; if you want the
